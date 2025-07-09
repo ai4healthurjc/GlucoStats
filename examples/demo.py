@@ -50,7 +50,7 @@ def main():
         n_workers=4
     )
 
-    # New configuration of intervals for hypoglycemia, euglycemia, hyperglycemia
+    # Configuration of intervals for hypoglycemia, euglycemia, hyperglycemia
     in_range_interval = [70, 180]
 
     # Class configuration and statistics extraction
