@@ -72,6 +72,7 @@ def glucose_data_verification(df_signals: pd.DataFrame) -> pd.DataFrame:
     df_signals : pd.DataFrame
         Only return df_signals if it has the correct format.
     """
+
     if not isinstance(df_signals, pd.DataFrame):
         raise TypeError('df_signals must be a multi-indexed dataframe.')
 

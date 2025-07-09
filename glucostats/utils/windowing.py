@@ -3,8 +3,11 @@ from datetime import timedelta
 from glucostats.utils.format_verification import glucose_data_verification, windows_params_verification
 
 
-def calculate_division_timestamps(df_signals: pd.DataFrame, windowing_method: str, windowing_param,
-                                  windowing_start: str) -> pd.DataFrame:
+def calculate_division_timestamps(df_signals: pd.DataFrame,
+                                  windowing_method: str,
+                                  windowing_param,
+                                  windowing_start: str
+                                  ) -> pd.DataFrame:
     """
     Calculates the timestamps where the time series are going to be cutted in order to divide it into windows. Each
     signal from df_signals is processed independently and different timestamps can appear for the different signals
@@ -61,7 +64,8 @@ def calculate_division_timestamps(df_signals: pd.DataFrame, windowing_method: st
         are going to be cutted in order to divide it into windows.
     """
     df_signals = glucose_data_verification(df_signals)
-    windows_params_verification(windowing_method=windowing_method, windowing_param=windowing_param,
+    windows_params_verification(windowing_method=windowing_method,
+                                windowing_param=windowing_param,
                                 windowing_start=windowing_start)
     column_name_timestamps, column_name_glucose = df_signals.columns
 

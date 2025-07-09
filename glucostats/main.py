@@ -12,6 +12,7 @@ from datetime import date
           </a>
 """
 
+
 def parse_arguments(parser):
     parser.add_argument('--n_cpus', default=0, type=int)
     parser.add_argument('--batching', default=1, type=int)

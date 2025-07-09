@@ -231,7 +231,7 @@ class ExtractGlucoStats(BaseEstimator, TransformerMixin):
             batch, signals_start_and_end = create_windows(batch, division_timestamps, self.windowing_start,
                                                           self.windowing_overlap)
         else:
-            signals_start_and_end = 'hola'
+            signals_start_and_end = 'error' # TODO check best descriptor
 
         dict_functions = {
             'time_in_ranges': lambda params: time_stats.time_in_ranges(batch, params['in_range_interval'], params['time_units']),
@@ -317,7 +317,7 @@ class ExtractGlucoStats(BaseEstimator, TransformerMixin):
             statistics_df = pd.concat([batch[0] for batch in results])
             signals_start_and_end = pd.concat([batch[1] for batch in results])
             end = time.time()
-            print('Extract statistics with cpus:', end - start)
+            logger.info('Extract statistics with cpus:'.format(end - start))
         else:
             logger.info(f'No distributed processing')
             statistics_df, signals_start_and_end = pd.DataFrame(), pd.DataFrame()
@@ -327,7 +327,7 @@ class ExtractGlucoStats(BaseEstimator, TransformerMixin):
                 statistics_df = pd.concat([statistics_df, statistics])
                 signals_start_and_end = pd.concat([signals_start_and_end, starts_and_ends])
             end = time.time()
-            print('Extract statistics with no cpus:', end - start)
+            logger.info('Extract statistics with no cpus:', end - start)
 
         self.statistics = statistics_df
         self.signals_time_ranges = signals_start_and_end
