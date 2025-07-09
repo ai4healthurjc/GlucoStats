@@ -3,8 +3,8 @@ import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
 
-# Import the functions to test
-from glucostats.utils.glucose_analysis import g_control, a1c_estimation, qgc_index
+
+from glucostats.stats.control_stats import g_control, a1c_estimation, qgc_index
 
 
 class TestGlycemicControlFunctions(unittest.TestCase):
@@ -177,6 +177,3 @@ class TestGlycemicControlFunctions(unittest.TestCase):
         with self.assertRaises(ValueError):
             qgc_index(self.test_df, ideal_bg='invalid')
 
-
-if __name__ == '__main__':
-    unittest.main()
