@@ -29,6 +29,15 @@ If you install the library from GitHub, make sure to install the required Python
 pip install -r requirements.txt 
 ```
 
+To run all tests:
+```shell
+pytest -v
+```
 
+
+To run with coverage report:
+```shell
+pytest --cov=glucostats.stats.glucose_variability --cov-report=html
+```
 
 
